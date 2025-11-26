@@ -24,24 +24,12 @@ export default function Page() {
      <section className="h-screen flex items-center justify-center">
   <GlassSection className="text-center max-w-3xl w-full px-10 py-16 rounded-3xl">
     {/* Top blurb */}
-    <p className="text-neutral-300 leading-relaxed text-lg">
+    <h1 className="text-neutral-300 leading-relaxed text-lg">
       <strong>Sub Spatial Studio</strong> is an indie AR/VR studio. Driven by a solo developer
       with ambition to craft imaginative, tactile experiences—and publish creative AR/VR
       apps that feel both playful and premium.
-    </p>
+    </h1>
 
-    {/* Enticing CTA */}
-    <p className="mt-8 text-neutral-300 text-base leading-relaxed">
-      Since starting as a solo developer I've only just realized it’s not pesky bugs that hinder
-      my updates, but time itself. Managing expectations with a 9/5 daily life will be key to
-      my success. I hope you’ll understand the timeline of my progression moving forward.
-      <br /> <span className="italic">— Some Dev</span>
-    </p>
-
-    {/* Buttons grid */}
-    <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {/* buttons go here */}
-    </div>
   </GlassSection>
 </section>
 
@@ -57,15 +45,11 @@ export default function Page() {
      <section className="h-screen flex items-center justify-center">
   <GlassSection className="text-center max-w-3xl w-full px-10 py-16 rounded-3xl">
     {/* Top blurb */}
-    <p className="text-neutral-300 leading-relaxed text-lg">
-      <strong>Sub Spatial Studio</strong> is an indie AR/VR studio. Driven by a solo developer
-      with ambition to craft imaginative, tactile experiences—and publish creative AR/VR
-      apps that feel both playful and premium.
-    </p>
+    
 
     {/* Enticing CTA */}
     <p className="mt-8 text-neutral-300 text-base leading-relaxed">
-      Since starting as a solo developer I've only just realized it’s not pesky bugs that hinder
+      Since starting as a solo developer Ive only just realized it’s not pesky bugs that hinder
       my updates, but time itself. Managing expectations with a 9/5 daily life will be key to
       my success. I hope you’ll understand the timeline of my progression moving forward.
       <br /> <span className="italic">— Some Dev</span>
