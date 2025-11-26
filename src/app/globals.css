@@ -1,8 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #000000;
   --foreground: #171717;
+
+   /* Backdrop = what we blur *behind* the panel */
+  --glass-backdrop-blur: 20px;          /* main frost */
+  --glass-surface-blur: 10px;           /* haze layer */
+  --glass-tint: rgba(0, 0, 0, 0.08); 
+  --glass-radius: 48px;     /* richer colors behind */
+
+  /* Fill of the panel itself (multiple stops = richer depth) */
+    --glass-fill: linear-gradient(
+    180deg,
+    rgba(250, 250, 250, 0.06) 0%,
+    rgba(250, 250, 250, 0.03) 100%
+  );
+  --glass-fill-blend: normal;
+  --glass-stroke-outer: rgba(255, 255, 255, 0.18);
+  --glass-stroke-inner: rgba(255, 255, 255, 0.10);
+
+  --glass-shadow: 0 8px 30px rgba(0, 0, 0, 0.55);
 }
 
 @theme inline {
@@ -16,11 +34,111 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+
+    --glass-fill: linear-gradient(
+      180deg,
+      rgba(255,255,255,0.55) 0%,
+      rgba(255,255,255,0.35) 100%
+    );
+    --glass-stroke-outer: rgba(0,0,0,0.08);
+    --glass-stroke-inner: rgba(255,255,255,0.85);
+    --glass-shadow: 0 8px 24px rgba(0,0,0,0.15);
   }
 }
+.glass-noise {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,\<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'>\<filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/></filter>\<rect width='48' height='48' filter='url(%23n)' opacity='0.035'/></svg>");
+  background-size: 96px 96px; /* large tile = softer grain */
+  mix-blend-mode: overlay;
+  border-radius: inherit;
+}
 
+/* Respect users who prefer less transparency / motion */
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(20,20,20,0.85) !important;
+  }
+}
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes hueCycle {
+  0%   { filter: hue-rotate(0deg); }
+  50%  { filter: hue-rotate(180deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* Gentle “breathing” glow + slight scale */
+@keyframes breathe {
+  0%   { opacity: 0.85; transform: scale(0.985); }
+  50%  { opacity: 1;    transform: scale(1.015); }
+  100% { opacity: 0.85; transform: scale(0.985); }
+}
+
+/* Respect accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .logo-anim, .logo-glow { animation: none !important; }
+}
+
+/* Optional: soft outer glow using CSS drop-shadow */
+.logo-glow {
+  filter: drop-shadow(0 0 22px rgba(255, 80, 60, 0.45));
+}
+@font-face {
+  font-family: "Asimovian";
+  src: url("/fonts/Asimovian-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+.asimovian-regular {
+  font-family: "Asimovian", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  font-family: "Asimovian", sans-serif;
+}
+.text-center { text-align: center; }
+
+/* ---- Reusable base for all glass panels ---- */
+.glass-base {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--glass-radius);
+  /* Edge + elevation */
+  border: 1px solid var(--glass-stroke-outer);
+  box-shadow: var(--glass-shadow);
+  /* Tint layer (matches your other panels) */
+  background: var(--glass-tint);
+}
+
+/* Fog/gradient fill */
+.glass-base::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--glass-fill);
+  background-blend-mode: var(--glass-fill-blend);
+  pointer-events: none;
+}
+
+/* Haze blur layer */
+.glass-base::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  filter: blur(var(--glass-surface-blur));
+  pointer-events: none;
+}
+
+/* Grain stays as-is */
+.glass-noise { border-radius: inherit; }
