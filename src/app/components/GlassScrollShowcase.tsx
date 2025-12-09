@@ -109,8 +109,17 @@ return (
   <div className="flex flex-col items-center gap-6 flex-1 justify-center">
     <div className="w-full max-w-3xl aspect-[4/3] pointer-events-none">
       <Canvas
-        gl={{ alpha: true, antialias: true }}
+        gl={{
+          alpha: true,
+          antialias: true,
+          powerPreference: "high-performance",
+          stencil: false,
+          depth: true,
+        }}
+        dpr={[1, 2]} // Use device pixel ratio, capped at 2x for performance
         camera={{ position: [0, 0, 2.2], fov: 45 }}
+        frameloop="always" // Ensure consistent 60fps rendering
+        performance={{ min: 0.5 }} // Auto-adjust quality if framerate drops
         style={{ position: "absolute", inset: 0 }}
       >
         <ChipGLB
@@ -136,7 +145,7 @@ return (
   </div>
 
   {/* CTA at bottom */}
-  <div className="pt-4">
+  <div className="pt-4 pb-6">
     <a
       href={ctaHref}
       target="_blank"
