@@ -9,7 +9,7 @@ import * as THREE from "three"
 type Props = { src?: string; scale?: number }
 
 /** Loads a GLB and centers it. Wraps content in Suspense with a lightweight fallback. */
-export default function ModelTextGLB({ src = "/public/brand/sss-text", scale = 1 }: Props) {
+export default function ModelTextGLB({ src = "/public/brand/sss-text", scale = 10 }: Props) {
   // Preload hint so the asset is fetched ASAP (outside render)
   useGLTF.preload(src)
 

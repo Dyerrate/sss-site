@@ -16,11 +16,12 @@ const Glass = forwardRef<HTMLDivElement, GlassProps>(function Glass(
   return (
     <div
       ref={ref}
-      className={clsx("relative overflow-hidden rounded-[var(--glass-radius)]",
+      className={clsx(
+        "relative overflow-hidden rounded-[var(--glass-radius)]",
         "border border-[var(--glass-stroke-outer)] shadow-[var(--glass-shadow)]",
         "bg-[var(--glass-tint)]",
-        "before:absolute before:inset-0 before:rounded-inherit before:bg-[var(--glass-fill)] before:[background-blend-mode:var(--glass-fill-blend)]",
-        "after:absolute after:inset-0 after:rounded-inherit after:blur-[var(--glass-surface-blur)]",
+        "before:absolute before:inset-0 before:rounded-inherit before:bg-[var(--glass-fill)] before:[background-blend-mode:var(--glass-fill-blend)] before:pointer-events-none",
+        "after:absolute after:inset-0 after:rounded-inherit after:blur-[var(--glass-surface-blur)] after:pointer-events-none",
         // ✅ add Tailwind backdrop utilities too (works in most setups)
         "backdrop-blur-[var(--glass-backdrop-blur)]",
         "backdrop-saturate-[140%] backdrop-brightness-[115%]",
@@ -36,7 +37,7 @@ const Glass = forwardRef<HTMLDivElement, GlassProps>(function Glass(
       {...rest}
     >
       <div aria-hidden className="glass-noise" />
-      {children}
+      <div className="relative z-10">{children}</div>
     </div>
   )
 })

@@ -13,41 +13,25 @@ import ChipGLB from "@/app/components/ChipGLB"
 
 const MotionGlass = motion(Glass)
 export default function GlassScrollShowcase({
-  children,
   className = "",
   heightVh = 300,
   minScale = 0.38,
-  // timing stops (keep what you already tuned, or tweak later)
-  expandEnd = 0.45,
-  holdEnd = 0.95,
-  shrinkStart = 0.95,
-  textInStart = 0.50,
-  textInEnd = 0.60,
-  textOutStart = 0.90,
-  textOutEnd = 0.94,
   // NEW: product UI props
   title = "Poker Lengends",
   productName = "An VisionOS Exclusive",
   blurb = "A VisionOS-only tabletop casino experience: tactile chips, cinematic lighting, and spatial audio—designed for quick hands and long sessions.",
   ctaHref = "#",
   ctaLabel = "View on the App Store", // how small the card starts/ends
-}: React.PropsWithChildren<{
+}: {
   className?: string
   heightVh?: number
   minScale?: number
-  expandEnd?: number
-  holdEnd?: number
-  shrinkStart?: number
-  textInStart?: number
-  textInEnd?: number
-  textOutStart?: number
-  textOutEnd?: number
   title?: string
   productName?: string
   blurb?: string
   ctaHref?: string
   ctaLabel?: string
-}>) {
+}) {
   const containerRef = useRef<HTMLDivElement | null>(null)
 
   // Scroll progress through the container: 0 -> 1
@@ -84,7 +68,7 @@ export default function GlassScrollShowcase({
     [0, 1, 1, 0]
   )
 
-return (
+  return (
     <section
       ref={containerRef}
       className={clsx("relative w-full", className)}
@@ -92,7 +76,7 @@ return (
     >
       <div className="sticky top-0 h-screen flex items-center justify-center">
         <MotionGlass
-          style={{ scale, borderRadius: radius as any, opacity: 1 }}
+          style={{ scale, borderRadius: radius, opacity: panelOpacity }}
           className={clsx("w-[min(88vw,1100px)] h-[min(72vh,820px)] p-0")}
         >
           {/* Centered vertical layout; all fades together via textOpacity */}
