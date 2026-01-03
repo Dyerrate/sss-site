@@ -1,8 +1,7 @@
 "use client"
 
-import { motion, useAnimation, useInView } from "framer-motion"
-import React, { useEffect, useRef, useState } from "react"
-import { fadeInSoft } from "@/app/lib/motion"
+import { motion, type Variants } from "framer-motion"
+import React from "react"
 import { useScrollReset } from "./ScrollResetProvider"
 
 /**
@@ -12,7 +11,7 @@ import { useScrollReset } from "./ScrollResetProvider"
  */
 
 type Props = React.PropsWithChildren<{
-  as?: keyof JSX.IntrinsicElements
+  as?: keyof React.JSX.IntrinsicElements
   className?: string
   /** fade duration (s) */
   duration?: number
@@ -48,7 +47,7 @@ export default function FadeIn({
     visible: { opacity: 1, y: 0, transition: { duration, delay, ease: [0.22, 1, 0.36, 1] } },
   }
 
-  const MotionTag: any = (motion as any)[Tag] ?? motion.div
+  const MotionTag = React.useMemo(() => motion.create(Tag), [Tag])
 
   return (
     <MotionTag

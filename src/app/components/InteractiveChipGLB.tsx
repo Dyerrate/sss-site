@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useState } from "react"
-import { Group, Euler, Vector3 } from "three"
+import { Group, Mesh, Object3D } from "three"
 import { useFrame, ThreeEvent } from "@react-three/fiber"
 import { useGLTF, Center, Environment } from "@react-three/drei"
 
@@ -26,15 +26,19 @@ export default function InteractiveChipGLB({
   const [velocity, setVelocity] = useState(0)
   const lastMouseX = useRef(0)
 
+  const setCursor = (cursor: string) => {
+    if (typeof document === "undefined") return
+    document.body.style.cursor = cursor
+  }
+
   // Optimize materials for better performance
-  scene.traverse((child: any) => {
-    if (child.isMesh) {
-      child.castShadow = true
-      child.receiveShadow = true
-      if (child.geometry) {
-        child.geometry.computeVertexNormals()
-      }
-    }
+  scene.traverse((child: Object3D) => {
+    const mesh = child as Mesh
+    if (!mesh.isMesh) return
+
+    mesh.castShadow = true
+    mesh.receiveShadow = true
+    mesh.geometry?.computeVertexNormals()
   })
 
   useFrame((_, dt) => {
@@ -53,9 +57,15 @@ export default function InteractiveChipGLB({
   const handlePointerDown = (e: ThreeEvent<PointerEvent>) => {
     e.stopPropagation()
     setIsDragging(true)
+    setCursor("grabbing")
     lastMouseX.current = e.clientX
     setVelocity(0)
-    e.target.setPointerCapture(e.pointerId)
+
+    const target = e.target as unknown as {
+      setPointerCapture: (pointerId: number) => void
+      releasePointerCapture: (pointerId: number) => void
+    }
+    target.setPointerCapture(e.pointerId)
   }
 
   const handlePointerMove = (e: ThreeEvent<PointerEvent>) => {
@@ -72,9 +82,17 @@ export default function InteractiveChipGLB({
 
   const handlePointerUp = (e: ThreeEvent<PointerEvent>) => {
     setIsDragging(false)
-    // @ts-ignore - accessing the canvas element
-    e.target.releasePointerCapture(e.pointerId)
+    setCursor("grab")
+
+    const target = e.target as unknown as {
+      setPointerCapture: (pointerId: number) => void
+      releasePointerCapture: (pointerId: number) => void
+    }
+    target.releasePointerCapture(e.pointerId)
   }
+
+  const handlePointerOver = () => setCursor(isDragging ? "grabbing" : "grab")
+  const handlePointerOut = () => setCursor("")
 
   return (
     <>
@@ -86,13 +104,14 @@ export default function InteractiveChipGLB({
       <Center>
         <group 
           ref={group} 
-          position={position as Vector3}
-          scale={scale as any}
+          position={position}
+          scale={scale}
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
           onPointerLeave={handlePointerUp}
-          style={{ cursor: isDragging ? 'grabbing' : 'grab' } as any}
+          onPointerOver={handlePointerOver}
+          onPointerOut={handlePointerOut}
         >
           <primitive object={scene} />
         </group>

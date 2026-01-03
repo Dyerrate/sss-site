@@ -84,12 +84,12 @@ export default function ThreeSection({
           maxAzimuthAngle={controls.maxAzimuth ?? Infinity}
           mouseButtons={{
             LEFT: THREE.MOUSE.ROTATE,
-            MIDDLE: controls.pan ? THREE.MOUSE.PAN : null,
-            RIGHT: controls.pan ? THREE.MOUSE.PAN : null,
+            MIDDLE: controls.pan ? THREE.MOUSE.PAN : undefined,
+            RIGHT: controls.pan ? THREE.MOUSE.PAN : undefined,
           }}
           touches={{
             ONE: THREE.TOUCH.ROTATE,
-            TWO: THREE.TOUCH.NONE,
+            TWO: undefined,
           }}
         />
       </Canvas>
