@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import GlassSection from "@/app/components/GlassSection"
 import FadeInOnce from "@/app/components/FadeInOnce"
-import TransitionLink from "@/app/components/TransitionLink"
 
 export const metadata: Metadata = {
   title: "About | Sub Spatial Studio",
@@ -71,23 +70,6 @@ export default function AboutPage() {
                   <p className="text-neutral-300 text-sm leading-relaxed">Small details that make the experience feel premium.</p>
                 </div>
               </div>
-            </div>
-          </FadeInOnce>
-
-          <FadeInOnce amount={0.25} duration={0.9}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <TransitionLink
-                href="/product"
-                className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-black hover:bg-white/90 active:scale-[0.98] transition"
-              >
-                Explore the Product
-              </TransitionLink>
-              <TransitionLink
-                href="/"
-                className="inline-flex items-center justify-center rounded-2xl bg-white/5 border border-white/15 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 hover:border-white/25 active:scale-[0.98] transition"
-              >
-                Back to Home
-              </TransitionLink>
             </div>
           </FadeInOnce>
         </div>

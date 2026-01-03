@@ -59,7 +59,7 @@ export default function GlassContactForm() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 mx-auto mb-6 rounded-full" />
             <p className="text-neutral-300 text-lg md:text-xl max-w-2xl mx-auto">
-              Have questions, feedback, or interested in our upcoming launch? We'd love to hear from you.
+              Have questions, feedback, or interested in our upcoming launch? We&apos;d love to hear from you.
             </p>
           </div>
 
@@ -180,7 +180,7 @@ export default function GlassContactForm() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-center text-green-400 text-sm"
               >
-                Thanks for reaching out! We'll get back to you soon.
+                Thanks for reaching out! We&apos;ll get back to you soon.
               </motion.p>
             )}
           </form>

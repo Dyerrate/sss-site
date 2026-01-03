@@ -23,7 +23,7 @@ export default function FadeInOnce({
   y = 16,            // start offset in px
   delay = 0,         // optional delay
 }: React.PropsWithChildren<{
-  as?: keyof JSX.IntrinsicElements
+  as?: keyof React.JSX.IntrinsicElements
   className?: string
   duration?: number
   amount?: number
@@ -43,7 +43,7 @@ export default function FadeInOnce({
     },
   }
 
-  const MotionTag: any = (motion as any)[Tag] ?? motion.div
+  const MotionTag = React.useMemo(() => motion.create(Tag), [Tag])
 
   return (
     <MotionTag

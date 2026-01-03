@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef } from "react"
-import { Group, Euler, Vector3 } from "three"
+import { Group, Mesh, Object3D } from "three"
 import { useFrame } from "@react-three/fiber"
 import { useGLTF, Center, Environment } from "@react-three/drei"
 
@@ -26,15 +26,13 @@ export default function ChipGLB({
   const { scene } = useGLTF(src)
 
   // Optimize materials for better performance
-  scene.traverse((child: any) => {
-    if (child.isMesh) {
-      child.castShadow = true
-      child.receiveShadow = true
-      // Enable smooth shading
-      if (child.geometry) {
-        child.geometry.computeVertexNormals()
-      }
-    }
+  scene.traverse((child: Object3D) => {
+    const mesh = child as Mesh
+    if (!mesh.isMesh) return
+
+    mesh.castShadow = true
+    mesh.receiveShadow = true
+    mesh.geometry?.computeVertexNormals()
   })
 
   useFrame((_, dt) => {
@@ -58,7 +56,7 @@ export default function ChipGLB({
       <Environment preset="city" environmentIntensity={0.6} />
       {/* Center keeps the model's bounds centered; your transforms go on the group */}
       <Center>
-        <group ref={group} position={position as Vector3} rotation={finalRotation as Euler} scale={scale as any}>
+        <group ref={group} position={position} rotation={finalRotation} scale={scale}>
           <primitive object={scene} />
         </group>
       </Center>
