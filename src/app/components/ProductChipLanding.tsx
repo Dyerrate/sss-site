@@ -53,19 +53,19 @@ export default function ProductChipLanding() {
       {/* Panel layer (fades in after chip finishes fading out) */}
       {phase === "panel" ? (
         <motion.div
-          className="absolute inset-0 flex items-center justify-center px-6 py-10"
+          className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 py-8 sm:py-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         >
-          <Glass className="w-full max-w-3xl" padding="p-10 md:p-12">
-            <div className="space-y-4 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">Poker Legends</h2>
-              <p className="text-neutral-300 leading-relaxed">
+          <Glass className="w-full max-w-3xl" padding="p-6 sm:p-10 md:p-12">
+            <div className="space-y-3 sm:space-y-4 text-center">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Poker Legends</h2>
+              <p className="text-neutral-300 leading-relaxed text-sm sm:text-base px-2">
                 A premium spatial tabletop experience designed for Vision Pro. Product details are being
                 finalized—this page will expand with gameplay, features, and release info.
               </p>
-              <p className="text-neutral-400 text-sm">
+              <p className="text-neutral-400 text-xs sm:text-sm">
                 More coming soon.
               </p>
             </div>

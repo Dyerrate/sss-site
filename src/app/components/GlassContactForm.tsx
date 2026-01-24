@@ -39,11 +39,11 @@ export default function GlassContactForm() {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-24">
-      <Glass className="w-full max-w-3xl p-10 md:p-16 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-16 sm:py-24">
+      <Glass className="w-full max-w-3xl p-6 sm:p-10 md:p-16 relative overflow-hidden">
         {/* Decorative gradient orbs */}
-        <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-br from-blue-500/15 to-purple-500/15 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tl from-pink-500/15 to-orange-500/15 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+        <div className="absolute top-0 right-0 w-48 sm:w-72 h-48 sm:h-72 bg-gradient-to-br from-blue-500/15 to-purple-500/15 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-48 sm:w-72 h-48 sm:h-72 bg-gradient-to-tl from-pink-500/15 to-orange-500/15 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -53,12 +53,12 @@ export default function GlassContactForm() {
           className="relative z-10"
         >
           {/* Header */}
-          <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <div className="text-center mb-8 sm:mb-10">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
               Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Touch</span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 mx-auto mb-6 rounded-full" />
-            <p className="text-neutral-300 text-lg md:text-xl max-w-2xl mx-auto">
+            <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 mx-auto mb-4 sm:mb-6 rounded-full" />
+            <p className="text-neutral-300 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto px-4">
               Have questions, feedback, or interested in our upcoming launch? We&apos;d love to hear from you.
             </p>
           </div>

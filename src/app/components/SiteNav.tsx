@@ -53,9 +53,9 @@ export default function SiteNav() {
   }, [])
 
   return (
-    <header ref={headerRef} className="sticky top-0 z-40 w-full px-4 pt-4">
-      <Glass padding="px-5 py-4" className="w-full">
-        <nav className="relative flex items-center justify-between gap-6">
+    <header ref={headerRef} className="sticky top-0 z-40 w-full px-2 sm:px-4 pt-3 sm:pt-4">
+      <Glass padding="px-2 sm:px-4 md:px-5 py-2 sm:py-3 md:py-4" className="w-full">
+        <nav className="relative flex items-center justify-between gap-1 sm:gap-4 md:gap-6">
           <Link
             href="/"
             onClick={(e) => {
@@ -64,11 +64,14 @@ export default function SiteNav() {
             }}
             aria-disabled={isTransitioning}
             className={clsx(
-              "text-white font-semibold tracking-wide whitespace-nowrap",
-              isTransitioning && "pointer-events-none opacity-80"
+              "text-white font-semibold tracking-wide whitespace-nowrap text-[10px] sm:text-xs md:text-sm lg:text-base",
+              isTransitioning && "pointer-events-none opacity-80",
+              "flex-shrink-0"
             )}
           >
-            Sub Spatial Studio
+            <span className="hidden md:inline">Sub Spatial Studio</span>
+            <span className="hidden sm:inline md:hidden">Sub Spatial</span>
+            <span className="sm:hidden">SSS</span>
           </Link>
 
           <Link
@@ -80,7 +83,7 @@ export default function SiteNav() {
             aria-disabled={isTransitioning}
             aria-label="Home"
             className={clsx(
-              "absolute left-1/2 -translate-x-1/2",
+              "absolute left-1/2 -translate-x-1/2 flex-shrink-0",
               isTransitioning && "pointer-events-none opacity-80"
             )}
           >
@@ -90,12 +93,12 @@ export default function SiteNav() {
               aria-hidden="true"
               width={72}
               height={72}
-              className="h-[72px] w-auto"
+              className="h-[40px] sm:h-[52px] md:h-[64px] lg:h-[72px] w-auto"
               priority
             />
           </Link>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-0.5 sm:gap-1 md:gap-2 flex-shrink-0">
             {navItems.map((item) => {
               const isActive = item.href === "/" ? pathname === "/" : pathname?.startsWith(item.href)
               const isPending = isTransitioning && pendingHref === item.href
@@ -110,7 +113,7 @@ export default function SiteNav() {
                   }}
                   aria-disabled={isTransitioning}
                   className={clsx(
-                    "px-4 py-2 rounded-2xl text-sm border transition-colors",
+                    "px-1.5 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-lg sm:rounded-xl md:rounded-2xl text-[10px] sm:text-xs md:text-sm border transition-colors whitespace-nowrap",
                     isTransitioning && "pointer-events-none",
                     isPending && "text-white border-white/35 bg-white/10 border-dashed",
                     !isPending &&
