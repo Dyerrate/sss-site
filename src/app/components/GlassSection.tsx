@@ -15,7 +15,7 @@ type Props = React.PropsWithChildren<{
  */
 export default function GlassSection({ className = "", max = "3xl", children }: Props) {
   return (
-    <div className={clsx("px-6 py-24 md:py-32 flex justify-center", className)}>
+    <div className={clsx("px-4 sm:px-6 py-16 sm:py-24 md:py-32 flex justify-center", className)}>
       <Glass className={clsx(`w-full max-w-${max}`)}>{children}</Glass>
     </div>
   )
