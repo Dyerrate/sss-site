@@ -48,6 +48,9 @@ export default function ThreeSection({
   const resolvedHeight =
     typeof height === "number" ? `${height}px` : height
 
+  // If all controls are disabled, allow touch events to pass through for scrolling
+  const allowTouchPassthrough = !controls.rotate && !controls.pan && !controls.zoom
+
   return (
     <div
       className={`relative w-full ${className}`}
@@ -56,13 +59,22 @@ export default function ThreeSection({
         ...style,
         /* IMPORTANT: lets the canvas fill the parent and not trap page scroll */
         overscrollBehavior: "auto",
+        /* Allow vertical touch scrolling when no controls are enabled */
+        touchAction: allowTouchPassthrough ? "pan-y" : "none",
       }}
     >
       {/* Canvas auto-resizes to its parent; alpha keeps background clear */}
       <Canvas
         gl={{ alpha: true, antialias: true }}
         camera={{ position: [0, 0, 6], fov: 45 }}
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          /* Allow touch events to pass through for scrolling on mobile when controls are disabled */
+          touchAction: allowTouchPassthrough ? "pan-y" : "none",
+        }}
       >
         <ambientLight intensity={0.6} />
         <directionalLight position={[5, 5, 5]} intensity={0.7} />
@@ -88,7 +100,7 @@ export default function ThreeSection({
             RIGHT: controls.pan ? THREE.MOUSE.PAN : undefined,
           }}
           touches={{
-            ONE: THREE.TOUCH.ROTATE,
+            ONE: allowTouchPassthrough ? undefined : THREE.TOUCH.ROTATE,
             TWO: undefined,
           }}
         />
