@@ -109,10 +109,10 @@ export default function AboutPage() {
 
               {/* Developer Info */}
               <div className="flex-1 text-center md:text-left">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Hi, I'm the developer behind Sub Spatial Studio</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Hi, I&apos;m the developer behind Sub Spatial Studio</h3>
                 <p className="text-neutral-300 leading-relaxed mb-4">
-                  I'm a solo developer passionate about crafting immersive spatial experiences. From design to code to 3D, 
-                  I handle it all with a focus on quality and attention to detail. I'd love to connect—whether you have 
+                  I&apos;m a solo developer passionate about crafting immersive spatial experiences. From design to code to 3D, 
+                  I handle it all with a focus on quality and attention to detail. I&apos;d love to connect—whether you have 
                   questions, feedback, or just want to chat about spatial computing.
                 </p>
                 <a 
