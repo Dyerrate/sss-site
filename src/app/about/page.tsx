@@ -24,8 +24,8 @@ export default function AboutPage() {
                 Studio
               </h1>
               <p className="text-neutral-300 text-base md:text-lg leading-relaxed max-w-3xl mx-auto">
-                Sub Spatial Studio is an indie, solo development studio (for now) focused on building high-quality spatial
-                experiences—starting with Apple Vision Pro.
+                An indie studio crafting vibrant, immersive spatial experiences for Apple Vision Pro and beyond—built by 
+                an engineer who believes the future of computing is all around us.
               </p>
             </div>
           </FadeInOnce>
@@ -33,17 +33,18 @@ export default function AboutPage() {
           <FadeInOnce amount={0.25} duration={0.9}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
-                <h2 className="text-xl font-semibold text-white mb-2">Indie & solo</h2>
+                <h2 className="text-xl font-semibold text-white mb-2">Engineer by Day, Creator by Night</h2>
                 <p className="text-neutral-300 leading-relaxed">
-                  Right now it’s a one-person shop—design, engineering, and 3D all under one roof. The goal is to stay
-                  nimble, ship often, and iterate quickly.
+                  Behind Sub Spatial Studio is a full-time software engineer who channels years of professional experience 
+                  into building polished spatial applications. The discipline of enterprise engineering meets the creative 
+                  freedom of indie development.
                 </p>
               </div>
               <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
-                <h2 className="text-xl font-semibold text-white mb-2">Built for Vision Pro</h2>
+                <h2 className="text-xl font-semibold text-white mb-2">Vibrant visionOS Experiences</h2>
                 <p className="text-neutral-300 leading-relaxed">
-                  Spatial computing deserves careful interaction design, readable UI, and satisfying feedback. Everything
-                  here is shaped around comfort, clarity, and presence.
+                  Spatial computing opens up a canvas unlike anything before it. Every app here is designed to pop with 
+                  color, depth, and life—creating moments that feel magical while remaining intuitive and comfortable.
                 </p>
               </div>
             </div>
@@ -51,25 +52,107 @@ export default function AboutPage() {
 
           <FadeInOnce amount={0.25} duration={0.9}>
             <div className="rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">What we’re aiming for</h2>
+<h2 className="text-2xl md:text-3xl font-bold text-white mb-3">The Vision</h2>
               <p className="text-neutral-300 leading-relaxed max-w-4xl">
                 Great AR/VR apps feel intentional: the lighting, the scale, the sound, and the motion all work together.
                 Sub Spatial Studio is focused on building experiences that are fun, polished, and designed to feel at home
-                in mixed reality.
+                in mixed reality—bridging professional engineering standards with bold creative vision.
               </p>
               <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-3">
                 <div className="rounded-2xl border border-white/10 bg-black/20 px-4 py-4">
-                  <p className="text-white font-semibold mb-1">Spatial interaction</p>
-                  <p className="text-neutral-300 text-sm leading-relaxed">Comfortable, readable UI with tactile feedback.</p>
+                  <p className="text-white font-semibold mb-1">Spatial Interaction</p>
+                  <p className="text-neutral-300 text-sm leading-relaxed">Comfortable, readable UI with tactile feedback designed for natural gestures.</p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-black/20 px-4 py-4">
-                  <p className="text-white font-semibold mb-1">3D-first design</p>
-                  <p className="text-neutral-300 text-sm leading-relaxed">Cinematic lighting and purposeful motion.</p>
+                  <p className="text-white font-semibold mb-1">3D-First Design</p>
+                  <p className="text-neutral-300 text-sm leading-relaxed">Cinematic lighting, vibrant materials, and purposeful motion.</p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-black/20 px-4 py-4">
-                  <p className="text-white font-semibold mb-1">Quality over noise</p>
-                  <p className="text-neutral-300 text-sm leading-relaxed">Small details that make the experience feel premium.</p>
+                  <p className="text-white font-semibold mb-1">Production Quality</p>
+                  <p className="text-neutral-300 text-sm leading-relaxed">Enterprise-grade engineering applied to every release.</p>
                 </div>
+              </div>
+            </div>
+          </FadeInOnce>
+        </div>
+      </GlassSection>
+
+      {/* Philosophy & Approach Section */}
+      <GlassSection>
+        <div className="space-y-8">
+          <FadeInOnce amount={0.3} duration={0.9}>
+            <div className="text-center space-y-4">
+              <p className="text-neutral-400 text-sm uppercase tracking-wider">Philosophy</p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                Why{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+                  Spatial
+                </span>
+                ?
+              </h2>
+            </div>
+          </FadeInOnce>
+
+          <FadeInOnce amount={0.25} duration={0.9}>
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8">
+              <p className="text-neutral-300 leading-relaxed text-base md:text-lg max-w-4xl mx-auto text-center mb-8">
+                After years of building software that lives behind flat screens, spatial computing feels like the natural 
+                evolution—apps that exist <em>in</em> your world, not just on it. visionOS represents a paradigm shift, and being 
+                part of that early wave is both a privilege and a responsibility.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="rounded-2xl border border-white/10 bg-black/20 px-5 py-5">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500/30 to-purple-500/30 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                      </svg>
+                    </div>
+                    <p className="text-white font-semibold">Indie Spirit</p>
+                  </div>
+                  <p className="text-neutral-300 text-sm leading-relaxed">
+                    No committee approvals or endless meetings. Ideas move from concept to prototype fast, with the 
+                    freedom to experiment and take creative risks that larger teams often can&apos;t.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-black/20 px-5 py-5">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500/30 to-pink-500/30 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </div>
+                    <p className="text-white font-semibold">Professional Craft</p>
+                  </div>
+                  <p className="text-neutral-300 text-sm leading-relaxed">
+                    Full-time engineering work means understanding what production-quality software looks like. 
+                    That standard carries over into every app—clean architecture, thorough testing, and reliable performance.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </FadeInOnce>
+
+          <FadeInOnce amount={0.25} duration={0.9}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-6 text-center">
+                <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-2">
+                  Swift
+                </div>
+                <p className="text-neutral-300 text-sm">Native visionOS development with SwiftUI and RealityKit</p>
+              </div>
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-6 text-center">
+                <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-2">
+                  Unity
+                </div>
+                <p className="text-neutral-300 text-sm">Cross-platform XR experiences with PolySpatial</p>
+              </div>
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-6 text-center">
+                <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-blue-400 mb-2">
+                  Blender
+                </div>
+                <p className="text-neutral-300 text-sm">Custom 3D assets and spatial environments</p>
               </div>
             </div>
           </FadeInOnce>
@@ -111,9 +194,10 @@ export default function AboutPage() {
               <div className="flex-1 text-center md:text-left">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Hi, I&apos;m the developer behind Sub Spatial Studio</h3>
                 <p className="text-neutral-300 leading-relaxed mb-4">
-                  I&apos;m a solo developer passionate about crafting immersive spatial experiences. From design to code to 3D, 
-                  I handle it all with a focus on quality and attention to detail. I&apos;d love to connect—whether you have 
-                  questions, feedback, or just want to chat about spatial computing.
+                  By day, I&apos;m a software engineer building production systems. By night, I&apos;m channeling that same discipline 
+                  into creating vibrant AR/VR experiences that push what&apos;s possible on visionOS. From Swift and RealityKit to 
+                  Unity and custom 3D work—I handle design, code, and assets with a focus on craft. Whether you have questions, 
+                  feedback, or want to collaborate on spatial computing projects, I&apos;d love to hear from you.
                 </p>
                 <a 
                   href="mailto:creative@subspatial.studio" 
