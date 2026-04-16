@@ -10,7 +10,7 @@ import { usePageTransition } from "@/app/components/PageTransitionProvider"
 
 const navItems = [
   { href: "/", label: "Home" },
-  { href: "/product", label: "Product" },
+  { href: "/products", label: "Products" },
   { href: "/about", label: "About" },
 ] as const
 

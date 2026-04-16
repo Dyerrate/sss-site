@@ -8,15 +8,25 @@ export default function SiteFooter() {
           © {new Date().getFullYear()} Sub Spatial Studio LLC
         </p>
 
-        <div className="flex items-center gap-4 text-sm">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
           <TransitionLink href="/" className="text-neutral-400 hover:text-white transition-colors">
             Home
           </TransitionLink>
-          <TransitionLink href="/product" className="text-neutral-400 hover:text-white transition-colors">
-            Product
+          <TransitionLink href="/products" className="text-neutral-400 hover:text-white transition-colors">
+            Products
+          </TransitionLink>
+          <TransitionLink href="/products/connectz" className="text-neutral-400 hover:text-white transition-colors">
+            Connectz
           </TransitionLink>
           <TransitionLink href="/about" className="text-neutral-400 hover:text-white transition-colors">
             About
+          </TransitionLink>
+          <span className="text-white/10 hidden sm:inline" aria-hidden>·</span>
+          <TransitionLink
+            href="/products/connectz/privacypolicy"
+            className="text-neutral-600 hover:text-neutral-400 transition-colors text-xs"
+          >
+            Connectz Privacy Policy
           </TransitionLink>
         </div>
       </div>

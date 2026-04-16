@@ -8,6 +8,21 @@ const nextConfig: NextConfig = {
         destination: "/about",
         permanent: false,
       },
+      {
+        source: "/product",
+        destination: "/products",
+        permanent: true,
+      },
+      {
+        source: "/connectz",
+        destination: "/products/connectz",
+        permanent: true,
+      },
+      {
+        source: "/connectz/privacypolicy",
+        destination: "/products/connectz/privacypolicy",
+        permanent: true,
+      },
     ]
   },
 }

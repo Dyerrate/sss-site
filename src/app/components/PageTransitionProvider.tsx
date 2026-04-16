@@ -49,15 +49,15 @@ export default function PageTransitionProvider({ children }: { children: React.R
       await controls.set({ y: "100%" })
 
       // Move up under the header (header stays above due to z-index)
-      await controls.start({ y: 0, transition: { duration: 1.6, ease: "easeInOut" } })
+      await controls.start({ y: 0, transition: { duration: 0.45, ease: "easeInOut" } })
 
       const beforePath = pathnameRef.current
       router.push(href)
 
-      // Pause for 1s AND wait for route change (best-effort)
+      // Brief pause AND wait for route change (best-effort)
       const waitForPathChange = new Promise<void>((resolve) => {
         const start = Date.now()
-        const maxWait = 2500
+        const maxWait = 1500
         const tick = () => {
           const now = Date.now()
           if ((pathnameRef.current ?? "") !== (beforePath ?? "")) return resolve()
@@ -67,10 +67,10 @@ export default function PageTransitionProvider({ children }: { children: React.R
         requestAnimationFrame(tick)
       })
 
-      await Promise.all([sleep(400), waitForPathChange])
+      await Promise.all([sleep(120), waitForPathChange])
 
       // Move back down to reveal the new page
-      await controls.start({ y: "100%", transition: { duration: 2.1, ease: "easeInOut" } })
+      await controls.start({ y: "100%", transition: { duration: 0.6, ease: "easeInOut" } })
 
       setIsTransitioning(false)
     },
