@@ -296,16 +296,15 @@ export default function ConnectzPrivacyPolicyPage() {
                   href="mailto:creative@subspatial.studio"
                   className="text-[#47B5DD] hover:text-[#99D6EA] transition-colors"
                 >
-                  creative@subspatial.studio
+                creative@subspatial.studio
                 </a>
               </p>
             </div>
           </div>
         </div>
-
         {/* Footer note */}
         <p className="text-center text-neutral-600 text-xs mt-8 pb-4">
-          © {new Date().getFullYear()} Sub Spatial Studio LLC · Connectz Privacy Policy
+          © {new Date().getFullYear()}Sub Spatial Studio LLC · Connectz Privacy Policy
         </p>
       </div>
     </div>
