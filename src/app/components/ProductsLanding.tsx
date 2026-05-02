@@ -14,7 +14,7 @@ const products = [
       "A premium tabletop casino experience designed exclusively for Vision Pro — polished, spatial, and built for cinematic poker nights.",
     gradient: "from-amber-400 via-orange-400 to-red-400",
     divider: "from-amber-400 via-orange-400 to-red-400",
-    badge: "Available Now",
+    badge: "Coming Soon",
     badgeColor: "bg-amber-400/15 text-amber-300 border-amber-400/20",
     logo: null,
   },
